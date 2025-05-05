@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Background Color</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
 </head>
 <body>
 
@@ -29,12 +29,12 @@
     });
 
     function changeBackgroundColor() {
-        // Générer une couleur aléatoire
-        var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
-        // Changer la couleur de fond du body
+        // Génère une couleur hexadécimale à 6 chiffres
+        var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
         document.body.style.backgroundColor = randomColor;
     }
 </script>
 
 </body>
 </html>
+
