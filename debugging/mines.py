@@ -43,42 +43,5 @@ class Minesweeper:
         if (y * self.width + x) in self.mines:  # Si on a trouvé une mine, le jeu est terminé
             return False
         self.revealed[y][x] = True
-        if self.count_mines_nearby(x, y) == 0:  # Si aucune mine n'est à proximité, on révèle aussi les cases adjacentes
-            for dx in [-1, 0, 1]:
-                for dy in [-1, 0, 1]:
-                    nx, ny = x + dx, y + dy
-                    if 0 <= nx < self.width and 0 <= ny < self.height and not self.revealed[ny][nx]:
-                        self.reveal(nx, ny)  # Récursion pour révéler les cases voisines
-        return True
-
-    def check_victory(self):
-        # Vérifie si toutes les cases sans mine sont révélées
-        revealed_count = 0
-        total_non_mines = self.width * self.height - len(self.mines)  # Nombre total de cases sans mine
-        for y in range(self.height):
-            for x in range(self.width):
-                if not (y * self.width + x) in self.mines and self.revealed[y][x]:
-                    revealed_count += 1
-        return revealed_count == total_non_mines  # Si toutes les cases sans mine sont révélées, on a gagné
-
-    def play(self):
-        while True:
-            self.print_board()
-            try:
-                x = int(input("Enter x coordinate: "))
-                y = int(input("Enter y coordinate: "))
-                if not self.reveal(x, y):  # Si une mine est rencontrée
-                    self.print_board(reveal=True)
-                    print("Game Over! You hit a mine.")
-                    break
-                if self.check_victory():  # Si toutes les cases non-mines sont révélées
-                    self.print_board(reveal=True)
-                    print("Congratulations! You've won the game.")
-                    break
-            except ValueError:
-                print("Invalid input. Please enter numbers only.")
-
-if __name__ == "__main__":
-    game = Minesweeper()  # Initialisation du jeu avec une grille de 10x10 et 10 mines
-    game.play()
+        if self.count_mines_nearby(x, y) == 0
 
