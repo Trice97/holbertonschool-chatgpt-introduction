@@ -21,23 +21,20 @@
 
 <h2>Click the button to change the background color</h2>
 
-<!-- Correct ID for the button -->
 <button id="colorButton">Change Color</button>
 
 <script>
-    // Utilisation de window.onload pour s'assurer que le DOM est entièrement chargé avant d'attacher l'événement
-    window.onload = function() {
-        // Vérification si l'élément existe avant d'attacher l'événement
-        const button = document.getElementById("colorButton");
-        if (button) {
-            button.addEventListener("click", function() {
-                changeBackgroundColor();
-            });
-        } else {
-            console.error("Le bouton avec l'ID 'colorButton' n'a pas été trouvé.");
-        }
-    };
+    document.getElementById("colorButton").addEventListener("click", function() {
+        changeBackgroundColor();
+    });
 
     function changeBackgroundColor() {
-        // Génération d'une couleur aléatoire
-        var randomColor = "#" + Math.floor(Math.random()
+        // Générer une couleur aléatoire
+        var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        // Changer la couleur de fond du body
+        document.body.style.backgroundColor = randomColor;
+    }
+</script>
+
+</body>
+</html>
